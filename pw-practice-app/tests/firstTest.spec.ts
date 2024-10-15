@@ -1,5 +1,4 @@
 import {test} from '@playwright/test'
-import { url } from 'inspector'
 
 // Hook before all tests (more rarely used)
 test.beforeAll(() => {
