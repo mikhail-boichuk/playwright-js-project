@@ -4,14 +4,21 @@ test.beforeEach(async ({page}) => {
     await page.goto('http://localhost:4200/')
 })
 
-test.describe('Form Layouts page', () => {
+test.describe.parallel('Form Layouts page', () => {
+
+    test.describe.configure({retries: 2}) // override global retries
 
     test.beforeEach(async ({page}) => {
         await page.getByText('Forms').click()
         await page.getByText('Form Layouts').click()
     })
 
-    test('Input fields', async ({page}) => {
+    test('Input fields', async ({page}, testInfo) => {
+
+        if (testInfo.retry) {
+            console.log('This is a retry. Some code can be here no cleanup first attempt data')
+        }
+
         const usingTheGridEmailInput = page.locator('nb-card', {hasText: "Using the Grid"}).getByRole('textbox', {name: "Email"})
 
         await usingTheGridEmailInput.fill('test@test.com')

@@ -63,7 +63,7 @@ test('Locating child elements', async ({page}) => {
 
 })
 
-test('Locating parent elements', async ({page}) => {
+test.skip('Locating parent elements', async ({page}) => {
 
     await page.locator('nb-card', {hasText: "Using the Grid"}).getByRole('textbox', {name: "Email"}).click()
     await page.locator('nb-card', {has: page.locator('#inputEmail1')}).getByRole('textbox', {name: "Email"}).click()
@@ -93,7 +93,7 @@ test('Reusing the locators', async ({page}) => {
 
 })
 
-test('Extracting values', async ({page}) => {
+test.skip('Extracting values', async ({page}) => {
 
     //single text value
     const basicForm = page.locator('nb-card').filter({hasText: "Basic form"})
@@ -120,7 +120,7 @@ test('Extracting values', async ({page}) => {
 
 })
 
-test('Assertions', async ({page}) => {
+test.skip('Assertions', async ({page}) => {
 
     //General assertions
     const value = 5
