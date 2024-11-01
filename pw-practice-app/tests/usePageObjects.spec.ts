@@ -6,7 +6,7 @@ import { faker } from '@faker-js/faker'
 test.describe.configure({mode: 'parallel'}) // force parallel execution for the test file
 
 test.beforeEach(async ({page}) => {
-    await page.goto('http://localhost:4200/')
+    await page.goto('/')
 })
 
 test('Navigate to Form Page', async ({page}) => {
@@ -33,8 +33,8 @@ test('Parametrized methods', async ({page}) => {
 
     await pm.navigateTo().formLayoutsPage()
     await pm.onFormLayoutsPage().submitUsingTheGridFormWithCredentialsAndSelectOption(
-        "test@test.com",
-        "Welcome1",
+        process.env.USERNAME,
+        process.env.PASSWORD,
         "Option 1"
     )
 

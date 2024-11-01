@@ -7,7 +7,7 @@ test.beforeAll(() => {
 
 // Hook before each test
 test.beforeEach(async ({page}) => {
-    await page.goto('http://localhost:4200/') // common action before each test including suites
+    await page.goto('/') // common action before each test including suites
 })
 
 test('navigate to layouts', async ({page}) => {

@@ -1,14 +1,14 @@
 import {expect, test} from '@playwright/test'
 
 test.beforeEach(async({page}, testInfo)=> {
-    await page.goto('http://uitestingplayground.com/ajax')
+    await page.goto(process.env.BASE_URL)
     await page.getByText('Button Triggering AJAX Request').click()
 
     testInfo.setTimeout(testInfo.timeout + 2000) // increase default test timemout by 2 seconds for each test in this spec file
 
 })
 
-test.skip('Auto waiting', async({page}) => {
+test('Auto waiting', async({page}) => {
     const successButton = page.locator('.bg-success')
     
     // await successButton.click()
@@ -23,7 +23,7 @@ test.skip('Auto waiting', async({page}) => {
     await expect(successButton).toHaveText('Data loaded with AJAX get request.', {timeout: 20000})
 })
 
-test.skip('Alternative waits', async({page}) => {
+test('Alternative waits', async({page}) => {
     const successButton = page.locator('.bg-success')
 
     // ___ wait for element
@@ -43,7 +43,7 @@ test.skip('Alternative waits', async({page}) => {
 
 })
 
-test.skip('Timeouts', async({page}) => {
+test('Timeouts', async({page}) => {
     // ====Timeout types==== (can be set through playwright.config.ts)
     // Global timeout - not set by default
     // Test timeout - 30 seconds by default and no longer than Global timeout
