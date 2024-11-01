@@ -54,7 +54,10 @@ export default defineConfig<TestOptions>({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: {width: 1920, height: 1080}
+      },
       fullyParallel: true
     },
     {
@@ -75,13 +78,10 @@ export default defineConfig<TestOptions>({
     },
     {
       name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      use: {
+        browserName: 'firefox'
+      },
       fullyParallel: false
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
     },
 
     /* Test against mobile viewports. */
