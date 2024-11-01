@@ -37,11 +37,19 @@ test('Parametrized methods', async ({page}) => {
         "Welcome1",
         "Option 1"
     )
+
+    // take screenshot of the whole screen
+    await page.screenshot({path: 'screenshots/formlayoutsPage.png'})
+    const buffer = await page.screenshot()
+    console.log(buffer.toString('base64'))
+
     await pm.onFormLayoutsPage().submitInlineFormWithNameEmailAndCheckbox(
         randomFullName,
         randomEmail,
         true
     )
+    // take screenshot of an element
+    await page.locator('nb-card', {hasText: "Inline form"}).screenshot({path: 'screenshots/inlineForm.png'})
 
     await pm.navigateTo().datepickerPage()
     await pm.onDatepickerPage().selectCommonDatePickerFromToday(5)

@@ -36,7 +36,11 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     // actionTimeout: 5000,
-    navigationTimeout: 5000
+    navigationTimeout: 5000,
+    video: {
+      mode: 'on',
+      size: {width: 1920, height: 1080}
+    } // will only be recorded when running test from cmd, not from plugin
   },
 
   /* Configure projects for major browsers */
