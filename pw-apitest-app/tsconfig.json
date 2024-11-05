@@ -3,7 +3,9 @@
   "compilerOptions": {
     "importHelpers": true,
     "moduleResolution": "node",
+    "resolveJsonModule": true,
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
     "target": "es2020",
     "plugins": [
       { "name": "tslint-language-service"}

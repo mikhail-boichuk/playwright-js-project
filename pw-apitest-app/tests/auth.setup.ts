@@ -1,8 +1,9 @@
 import { request, test as setup } from '@playwright/test';
-import user from '../../.auth/user.json'
-import { writeFileSync } from 'fs-extra'
+import user from '../.auth/user.json'
+// import { writeFileSync } from 'fs-extra'
+import * as fs from 'fs'
 
-const authFile = './.auth/user.json'
+const authFile = './pw-apitest-app/.auth/user.json'
 
 // This will run as a separate task before running any tests
 setup('authentication', async ({page, request}) => {
@@ -28,5 +29,5 @@ setup('authentication', async ({page, request}) => {
     process.env['ACCESS_TOKEN'] = acessToken
 
     user.origins[0].localStorage[0].value = acessToken
-    writeFileSync(authFile, JSON.stringify(user))
+    fs.writeFileSync(authFile, JSON.stringify(user))
 })
