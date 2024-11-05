@@ -4,7 +4,7 @@ test.beforeEach(async ({page}) => {
     await page.goto('/')
 })
 
-test.describe.parallel('Form Layouts page', () => {
+test.describe.parallel('Form Layouts page @block', () => {
 
     test.describe.configure({retries: 2}) // override global retries
 
