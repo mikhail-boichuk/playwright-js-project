@@ -83,6 +83,13 @@ export default defineConfig<TestOptions>({
       },
       fullyParallel: false
     },
+    {
+      name: 'mobile',
+      testMatch: 'testMobile.spec.ts',
+      use: { 
+        ...devices['iPhone 13 Pro'],
+      },
+    },
 
     /* Test against mobile viewports. */
     // {
